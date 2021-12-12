@@ -1,9 +1,10 @@
-AllCops:
-  TargetRubyVersion: 2.6
+require:
+  - rubocop-rspec
 
-Style/StringLiterals:
-  Enabled: true
-  EnforcedStyle: double_quotes
+AllCops:
+  TargetRubyVersion: 2.7
+  DisplayCopNames: true
+  NewCops: enable
 
 Style/StringLiteralsInInterpolation:
   Enabled: true
@@ -11,3 +12,32 @@ Style/StringLiteralsInInterpolation:
 
 Layout/LineLength:
   Max: 120
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: False
+
+RSpec/ExpectInHook:
+  Enabled: False
+
+RSpec/SubjectStub:
+  Exclude:
+    - spec/grpclog/server_interceptor_spec.rb
+    - spec/grpclog/integration/server_interceptor_spec.rb
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: False
+
+RSpec/FilePath:
+  Exclude:
+    - spec/grpclog/integration/*.rb
+
+Lint/EmptyBlock:
+  Exclude:
+    - spec/grpclog/*_interceptor_spec.rb
+    - spec/grpclog/integration/*_interceptor_spec.rb
