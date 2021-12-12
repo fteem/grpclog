@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package grpclog;
+
+service Greeter {
+  rpc RequestResponseMethod(Hello) returns (Hello) {}
+  rpc ServerStreamerMethod(Hello) returns (stream Hello) {}
+  rpc ClientStreamerMethod(stream Hello) returns (Hello) {}
+  rpc BidiStreamerMethod(stream Hello) returns (stream Hello) {}
+}
+
+message Hello {
+  string name = 1;
+  int64 error_code = 2;
+}
